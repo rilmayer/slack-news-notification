@@ -11,12 +11,12 @@ pip install -r requirements.txt -t ./lib
 ```
 
 ## Test
-### Unit test
+### Unit test (TODO)
 ```
 python -m unittest tests
 ```
 
-### Test(notify slack)
+### Test (notify slack)
 ```
 # install loacl development module
 pip install python-lambda-local

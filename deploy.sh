@@ -13,18 +13,25 @@ do
 done
 
 if [ "$FLG_FNAME" = "TRUE" ]; then
-  echo "set channel url: $VALUE_CURL"
-  echo "upload function: $VALUE_FNAME"
+  echo "zip upload files"
   zip -r ./lambda_function.zip *
 
-  # aws lambda update-function-code \
-  #     --function-name $VALUE_CURL \
-  #     --environment Variables={CHANNEL_URL=$CMDNAME}
-  #     --zip-file fileb://lambda_function.zip \
-  #     --region ap-northeast-1 \
-  #     --publish
+  echo "update function: $VALUE_FNAME"
+  aws lambda update-function-code \
+      --function-name $VALUE_FNAME \
+      --zip-file fileb://lambda_function.zip \
+      --region ap-northeast-1 \
+      --publish
+
+  echo "set channel url: $VALUE_CURL"
+  aws lambda update-function-configuration \
+      --function-name $VALUE_FNAME \
+      --timeout 60 \
+      --environment Variables={CHANNEL_URL=$VALUE_CURL}
 
   rm ./lambda_function.zip
+  
+  echo "update function is done!"
 fi
 
 exit 0
