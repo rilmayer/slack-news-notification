@@ -46,11 +46,13 @@ def lambda_handler(event, context):
 
     # Thursday Morning special
     if datetime.now().strftime('%H') == "00" and datetime.now().weekday() == 3:
+        res = get_ivents()
         res_list.append(res)
 
     # Friday Morning special
     if datetime.now().strftime('%H') == "00" and datetime.now().weekday() == 4:
-        pass
+        res = get_arxiv_papers()
+        res_list.append(res)
 
     return str(res_list)
 
