@@ -73,7 +73,7 @@ def notify_daily_news():
     """
 
     n_picked_news = 1 # only "1" is able to set
-    header_text = f"今日の Pickup News"
+    header_text = f"*今日の Pickup News*"
 
     # URL(Add your favrite RSS)
     rss_urls = [
@@ -115,7 +115,7 @@ def notify_daily_news():
     else:
         attachments = random.sample(contents, n_picked_news)
 
-    text = "*" + header_text + "*\n" + "\n".join(attachments)
+    text = header_text + "\n" + "\n".join(attachments)
     res = notify_slack(text=text, attachments=[], unfurl_links=True)
     return res
 
@@ -163,7 +163,7 @@ def notify_slack(text, attachments, **keywords):
 # Github Trends
 def get_github_trends():
     top_n = 5 # MAX is 5
-    header_text = f"Github Trends TOP{top_n}"
+    header_text = f"*Github Trends TOP{top_n}*"
     color_map = ["#800000", "#008000", "#000080", "#808000", "#800080", "#008080"]
 
     rss_url = 'http://github-trends.ryotarai.info/rss/github_trends_all_weekly.rss'
@@ -184,7 +184,7 @@ def get_github_trends():
 #   Depends on https://am-tb.tk/amaranrss/
 def get_amazon_trends():
     top_n = 5 # MAX is 5
-    header_text = f"Amzonベストセラー TOP{top_n}"
+    header_text = f"*Amzonベストセラー（IT） TOP{top_n}*"
     color_map = ["#800000", "#008000", "#000080", "#808000", "#800080", "#008080"]
     # IT, Computer category
     rss_url = 'https://am-tb.tk/amaranrss/get/?url=https://www.amazon.co.jp/gp/bestsellers/books/466298/ref=zg_bs_nav_b_1_b'
@@ -208,7 +208,7 @@ def get_amazon_trends():
 #   Depends on https://hnrss.org/newest
 def get_hacker_news_trends():
     top_n = 5 # MAX is 5
-    header_text = f"Hacker News {top_n}"
+    header_text = f"*Hacker News Trends Top {top_n}*"
     color_map = ["#800000", "#008000", "#000080", "#808000", "#800080", "#008080"]
     rss_url = 'https://hnrss.org/newest'
     parse_countent = feedparser.parse(rss_url)
@@ -227,7 +227,7 @@ def get_hacker_news_trends():
 #   [TODO] filltering interesting words
 def get_ivents():
     top_n = 5 # MAX is 5
-    header_text = f"勉強会・イベント情報です。"
+    header_text = f"*勉強会・イベント情報*"
     color_map = ["#800000", "#008000", "#000080", "#808000", "#800080", "#008080"]
 
     RSS_URL = 'https://connpass.com/explore/ja.atom'
@@ -261,7 +261,7 @@ def get_ivents():
 def get_arxiv_papers():
     top_n = 5 # MAX is 5
     days_search_range = 7
-    header_text = f"Arxiv Papers Pickup!"
+    header_text = f"*Arxiv Paper Pickup!*"
     color_map = ["#800000", "#008000", "#000080", "#808000", "#800080", "#008080"]
 
     with open("config.json", "r") as f:
