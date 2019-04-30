@@ -31,27 +31,32 @@ def lambda_handler(event, context):
 
     # Monday Morning special
     if datetime.now().strftime('%H') == "00" and datetime.now().weekday() == 0:
-        res = get_github_trends()
+        text, attachments = get_github_trends()
+        res = notify_slack(text, attachments)
         res_list.append(res)
 
     # Tuseday Morning special
     if datetime.now().strftime('%H') == "00" and datetime.now().weekday() == 1:
-        res = get_amazon_trends()
+        text, attachments = get_amazon_trends()
+        res = notify_slack(text, attachments)
         res_list.append(res)
 
     # Wednesday Morning special
     if datetime.now().strftime('%H') == "00" and datetime.now().weekday() == 2:
-        res = get_hacker_news_trends()
+        text, attachments = get_hacker_news_trends()
+        res = notify_slack(text, attachments)
         res_list.append(res)
 
     # Thursday Morning special
     if datetime.now().strftime('%H') == "00" and datetime.now().weekday() == 3:
-        res = get_ivents()
+        text, attachments = get_ivents()
+        res = notify_slack(text, attachments)
         res_list.append(res)
 
     # Friday Morning special
     if datetime.now().strftime('%H') == "00" and datetime.now().weekday() == 4:
-        res = get_arxiv_papers()
+        text, attachments = get_arxiv_papers()
+        res = notify_slack(text, attachments)
         res_list.append(res)
 
     return str(res_list)
