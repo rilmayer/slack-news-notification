@@ -22,6 +22,8 @@ if [ "$FLG_FNAME" = "TRUE" ]; then
       --zip-file fileb://lambda_function.zip \
       --region ap-northeast-1 \
       --publish
+      
+  sleep 5
 
   echo "set channel url: $VALUE_CURL"
   aws lambda update-function-configuration \
