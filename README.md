@@ -34,7 +34,7 @@ python-lambda-local -f lambda_handler -t 3 lambda_function.py event.json
 export AWS_DEFAULT_PROFILE=[profile-name]
 
 # function-name and slack-channel-url are reqired
-lambda_deploy.sh -f [fuction-name] \
+deploy.sh -f [fuction-name] \
                  -c [channel-url] \
 ```
 
