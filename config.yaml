@@ -1,0 +1,26 @@
+RSS_URLS:
+  - http://b.hatena.ne.jp/hotentry/it.rss
+  - https://news.yahoo.co.jp/pickup/computer/rss.xml
+  - http://feeds.japan.cnet.com/rss/cnet/all.rdf
+# 以下の単語にマッチするタイトルが優先的にピックされる
+INTEREST_WORDS:
+  - データ
+  - アルゴリズム
+  - SQL
+  - tensorflow
+  - 分析
+  - 機械学習
+  - Python
+  - DB
+  - 検索
+  - 統計
+  - 計算
+  - 言語処理
+  - パーソナライズ
+  - 検索
+  - 推薦
+SLACK_WEBHOOK_URL:
+  PLEAS_SET_YOUR_SLACK_CHANNEL_WEBHOOK_URL
+# 投稿を平日のみにするか
+WORKDAY_OPTION:
+  TRUE

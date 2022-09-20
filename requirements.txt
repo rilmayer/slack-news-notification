@@ -1,3 +1,4 @@
+pyyaml
+functions-framework==3.*
 slackweb
 feedparser
-beautifulsoup4
