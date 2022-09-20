@@ -22,8 +22,3 @@ class TestStringMethods(unittest.TestCase):
         logger = logging.getLogger(__name__)
         contents = daily_news(logger, mock=True)
         self.assertEqual(list, type(contents))
-
-        
-
-if __name__ == '__main__':
-    unittest.main()
